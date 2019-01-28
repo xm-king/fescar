@@ -41,14 +41,13 @@ public class FileTransactionStoreManagerTest {
     }
 
     @AfterClass
-    public void tearDown() {
+    public void tearDown(){
         fileTransactionStoreManager.shutdown();
     }
 
     @Test(dataProvider = "sessionProvider")
-    public void writeSessionTest(GlobalSession globalSession) {
-        boolean result = fileTransactionStoreManager.writeSession(TransactionStoreManager.LogOperation.GLOBAL_ADD,
-            globalSession);
+    public void writeSessionTest(GlobalSession globalSession){
+        boolean result = fileTransactionStoreManager.writeSession(TransactionStoreManager.LogOperation.GLOBAL_ADD,globalSession);
         Assert.assertTrue(result);
     }
 
@@ -62,8 +61,8 @@ public class FileTransactionStoreManagerTest {
 
     @DataProvider
     public static Object[][] sessionProvider() {
-        GlobalSession globalSession = new GlobalSession("demo-app", "my_test_tx_group", "test", 6000);
-        return new Object[][] {{globalSession}};
+        GlobalSession globalSession = new GlobalSession("demo-app","my_test_tx_group","test",6000);
+        return new Object[][] {{ globalSession}};
     }
 
 }
